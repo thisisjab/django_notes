@@ -5,9 +5,9 @@
 - Start a new project by executing `django-admin startproject my_first_project .`
 
 **Attention:** if you don't add a single dot character at the end of last command, an additional directory will be created with the same name of your project name which you may don't want to happen.
-***
+
 From now on, you are going to use `manage.py` file instead of `django-admin` command. Generally, when working on a single Django project, it's easier to use `manage.py` than `django-admin` command.
-***
+
 ## Run your projet
 You can run your project by `runserver` command:
 
