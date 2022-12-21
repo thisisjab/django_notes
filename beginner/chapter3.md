@@ -66,9 +66,8 @@ Now every other template can inherit from this template like:
 ```
 ## Writing Unit Tests
 Although you can use python's *unittest* module for writing unit tests, but Django itself provides some default classes for writing tests. First, read this part which is taken from the book:
-> Django’s own testing framework provides several extensions on top of Python’s unittest.`TestCase` base class. These include a test client for making dummy Web browser requests, a number of Django-specific additional assertions, and four test case classes: `SimpleTestCase`, `TestCase`, `TransactionTestCase`, and `LiveServerTestCase`. >
-
-> Generally speaking, `SimpleTestCase` is used when a database is not necessary while `TestCase` is used when you do want to test the database. `TransactionTestCase` is useful if you need to directly test database transactions while `LiveServerTestCase` launches a live server thread useful for testing with browser-based tools like Selenium. >
+> Django’s own testing framework provides several extensions on top of Python’s unittest.`TestCase` base class. These include a test client for making dummy Web browser requests, a number of Django-specific additional assertions, and four test case classes: `SimpleTestCase`, `TestCase`, `TransactionTestCase`, and `LiveServerTestCase`.
+> Generally speaking, `SimpleTestCase` is used when a database is not necessary while `TestCase` is used when you do want to test the database. `TransactionTestCase` is useful if you need to directly test database transactions while `LiveServerTestCase` launches a live server thread useful for testing with browser-based tools like Selenium.
 
 To write tests we will use `tests.py` file which is included with every single Django app.
 
