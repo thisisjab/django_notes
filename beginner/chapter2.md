@@ -32,7 +32,7 @@ def home_page_view(request):
 These type of views give you a number of powerful options, but they may seem hard for beginners.
 ### Generic class-based views
 These are a several built-in classes for you handling common use cases such as crud.
-***
+
 ## Url configuration for a function-based view
 Import `path` from `django.urls` and your function-based view and configure `urlpatterns` inside your app's urls file.
 ```
