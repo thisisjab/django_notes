@@ -32,7 +32,7 @@ One of the most interesting features of Django is its default powerful admin pag
 Now, navigate to `your.website/admin` and it enter you username and password and boom!
 
 To inform admin page that a model does exist, we should register it in app's `admin.py` file. Imagine you have create a model named `Post`:
-```
+```python
 from django.contrib import admin
 from .models import Post
 
@@ -40,8 +40,8 @@ admin.site.register(Post)
 ```
 
 ## Writing test
-In previous chapter, we used `SimpleTestCase` as we did not have a database involved. Now let's use `TestCase`. `TestCase` will make a isolated database and run out tests on that, but not a actual database:
-```
+In previous chapter, we used `SimpleTestCase` as we did not have a database involved. Now let's use `TestCase`. `TestCase` will make a isolated database and run out tests on that, but not a actual database. Here, we create a Post object and then check if its content is what we expected:
+```python
 from django.test import TestCase
 from .models import Post
 
