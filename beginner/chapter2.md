@@ -24,7 +24,7 @@ To return static Http responses you may want to use `HttpResponse` object which 
 There are two types of views in Django:
 ### Function-based view
 This is the first type of views that Django started working with. They are easy to use.
-```
+```python
 def home_page_view(request):
     return HttpResponse("Hello, World!")
 ```
@@ -35,7 +35,7 @@ These are a several built-in classes for you handling common use cases such as c
 
 ## Url configuration for a function-based view
 Import `path` from `django.urls` and your function-based view and configure `urlpatterns` inside your app's urls file.
-```
+```python
 urlpatterns = [
     path("/home", function_based_view, name="HomeURL")
 ]
@@ -44,7 +44,7 @@ urlpatterns = [
 The `name` parameter is optional and will be used as a reference name to this url pattern.
 
 As we said earlier, Django has a project-level url configuration. Let's see what to do in this file. First, import `path` and `include` from `django.urls`.
-```
+```python
 urlpatterns = [
     path("", include("YouApp.urls"))
 ]
