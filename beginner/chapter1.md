@@ -1,5 +1,7 @@
 # Chapter 1: Initial Set Up
+
 ## Steps for creating a Django project:
+
 - Create a virtual environment and activate it
 - Install Djagno package using pip
 - Start a new project by executing `django-admin startproject my_first_project .`
@@ -9,6 +11,7 @@
 From now on, you are going to use `manage.py` file instead of `django-admin` command. Generally, when working on a single Django project, it's easier to use `manage.py` than `django-admin` command.
 
 ## Run your projet
+
 You can run your project by `runserver` command:
 
 `python manage.py runserver`
