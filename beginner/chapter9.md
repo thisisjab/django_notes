@@ -137,3 +137,34 @@ class SignUpView(CreateView):
     success_url = reverse_lazy('login')
     template_name = "registration/signup.html"
 ```
+
+Ok. Till now we are almost done, but if try the new things out and test admin page, you will notice there is no email field for new users.
+
+Currently, in `accounts/forms.py` under fields we’re using `Meta.fields`, which just displays the default settings of username/age/password. But we can also explicitly set which fields we want displayed so let’s update it to ask for a username/email/age/password by setting it to `('username', 'email', 'age',)`. We don’t need to include the password fields because they are required! All the other fields can be configured however we choose.
+
+```python
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from .models import CustomUser
+
+
+class CustomUserCreationForm(UserCreationForm):
+    class Meta(UserCreationForm):
+        model = CustomUser
+        fields = (
+            "username",
+            "email",
+            "age",
+        )
+
+
+class CustomUserChangeForm(UserChangeForm):
+    class Meta:
+        model = CustomUser
+        fields = (
+            "username",
+            "email",
+            "age",
+        )
+```
+
+And now we are done.
