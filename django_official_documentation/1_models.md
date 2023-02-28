@@ -64,3 +64,37 @@ class Student(models.Model):
 ```
 
 There are other useful options too, but they will not be covered in this article. Please read [this page](https://docs.djangoproject.com/en/4.1/ref/models/fields/#field-options) if you are interested.
+
+## Relationships between models
+
+### Many-to-one
+
+To define a many-to-one relationship, use `ForigenKey` field type:
+
+```python
+from django.db import models
+
+
+class Manufacturer(models.Model):
+    pass
+
+
+class Car(models.Model):
+    manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE)
+```
+
+### Many-to-many
+
+To define a many-to-many relationship, use `ManyToManyField` field type, but keep mind this field should be only in one model not both:
+
+```python
+from django.db import models
+
+
+class Topping(models.Model):
+    pass
+
+
+class Pizza(models.Model):
+    toppings = models.ManyToManyField(Topping)
+```
