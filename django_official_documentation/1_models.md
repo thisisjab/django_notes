@@ -98,3 +98,33 @@ class Topping(models.Model):
 class Pizza(models.Model):
     toppings = models.ManyToManyField(Topping)
 ```
+
+## Meta Class
+
+Model Meta is basically the inner class of your model class. Model Meta is basically used to change the behavior of your model fields like changing order options, `verbose_name`, and a lot of other options. It's completely optional to add a Meta class to your model. Let's explore a few of Meta class options:
+
+__db_table__: This is used to change table name of the model.
+
+```python
+from django.db import models
+
+
+class Ox(models.Model):
+    horn_length = models.IntegerField()
+
+    class Meta:
+        db_table = 'ox_table'
+```
+
+__ordering__: This is used to tell Django how to order the queries.
+
+```python
+class MyModel(models.Model):
+    # Fields
+    class Meta:
+        ordering = ['-pub_date', 'author']
+```
+
+This is to order by `pub_date` descending, then by author ascending.
+
+There are a lot of other Meta class options which are not included here. Visit [this link](https://docs.djangoproject.com/en/4.1/ref/models/options/) to get more information.
