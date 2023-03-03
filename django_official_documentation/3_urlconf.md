@@ -38,3 +38,40 @@ Each `<type:name>` is a converter. There are several types of converters accordi
 Also, keep in mind that you should not add '/' before any URL since every URL by default does have it. So, `articles` is correct, but `/articles` is not.
 
 Another thing to mention is that the URLConf doesn’t look at the request method. In other words, all request methods – __POST__, __GET__, __HEAD__, etc. – will be routed to the same function for the same URL.
+
+## Namespacing URLs
+
+Imagine that you had a URLConf file like this:
+
+```python
+from django.urls import path
+from . import views
+
+
+urlpatterns = [
+    path('', views.index, name='index'),
+    path('<int:question_id>/', views.detail, name='quession_detail'),
+    path('<int:question_id>/results/', views.results, name='question_results'),
+    path('<int:question_id>/vote/', views.vote, name='question_vote'),
+]
+```
+
+So, in your templates to access any of these URLs, you had to use `<a href="{% url 'quession_detail' question.id %}">Link</a>`.
+
+But, if you add `app_name` to URLConf file, you can use namespaces:
+
+```python
+from django.urls import path
+
+from . import views
+
+app_name = 'polls'
+urlpatterns = [
+    path('', views.index, name='index'),
+    path('<int:question_id>/', views.detail, name='detail'),
+    path('<int:question_id>/results/', views.results, name='results'),
+    path('<int:question_id>/vote/', views.vote, name='vote'),
+]
+```
+
+And in the templates, use this syntax: `<a href="{% url 'detail' question.id %}">Link</a>`
